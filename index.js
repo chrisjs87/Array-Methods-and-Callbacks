@@ -124,14 +124,13 @@ Use the higher order function getAverageGoals to do the following:
 */
 
 function getAverageGoals(getFinalsCB) {
-const cummulativeNumGoalsPerFinalGame = getFinalsCB.reduce( function(acc,item){
+const cumulativeNumGoalsPerFinalGame = getFinalsCB.reduce( function(acc,item){
     return acc + item['Home Team Goals'] + item['Away Team Goals'];
 },0);
-const avgNumGoalsPerFinalGame = cummulativeNumGoalsPerFinalGame/getFinalsCB.length
-const avgNumGoalsPerFinalGameRounded = (Math.round(avgNumGoalsPerFinalGame*100))/100;
-   return `${avgNumGoalsPerFinalGameRounded}`;                                              // 100 is 10 to the power of 2
+const avgNumGoalsPerFinalGame = cumulativeNumGoalsPerFinalGame/getFinalsCB.length
+const avgNumGoalsPerFinalGameRounded = (Math.round(avgNumGoalsPerFinalGame*100))/100;   // 100 is 10 to the power of 2
+   return `${avgNumGoalsPerFinalGameRounded}`;                                              
 }
-
 
 // console.log(getAverageGoals(getFinals(fifaData)));
 
