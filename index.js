@@ -45,10 +45,10 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears(array, getFinalsCB) {            //we know that functionCB will === getFinals and array === fifaData
-    // const newArrayCalledYears = []; This is the wrong way, according to the tests    // we can return an array with our methods instead of declaring an open array
-    const newArrayCalledYears = getFinalsCB(array).map( item => item.Year);// we want the data in each of the objects, no filtering,.map
+    // const years = []; This is the wrong way, according to the tests    // we can return an array with our methods instead of declaring an open array
+    const years = getFinalsCB(array).map( item => item.Year);// we want the data in each of the objects, no filtering,.map
                              // getFinalsCB(array) is an array as an array is returned
-    return newArrayCalledYears;
+    return years;
 }
 
 // console.log(getYears(fifaData, getFinals));
@@ -57,13 +57,35 @@ function getYears(array, getFinalsCB) {            //we know that functionCB wil
 Use the higher-order function getWinners to do the following:  
 1. Receives an array
 2. Receives the callback function getFinals from task 2 
+
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+// we will need an if statement that observes the winning team by the final goal count
+//"Home Team Goals": 4,
+//"Away Team Goals": 2,
+
+function getWinners(array, getFinalsCB) {
+    const winnersArray = getFinalsCB(array).map(function(item){
+        if(item['Home Team Goals'] > item['Away Team Goals']){
+            return item['Home Team Name'];
+        }else{
+            return item['Away Team Name'];
+        }
+    });
+    return winnersArray;
 }
 
+// function getWinners(array, getFinalsCB) {
+//     const winnersArray = getFinalsCB(array).map(function(item){
+//         if(item['Home Team Goals'] > item['Away Team Goals']){
+//             return `In ${item.Year}, ${item['Home Team Name']} won the world cup!`;
+//         }else{
+//             return `In ${item.Year}, ${item['Away Team Name']} won the world cup!`;
+//         }
+//     });
+//     return winnersArray;
+// }
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
