@@ -10,15 +10,15 @@ const finals2014 = fifaData.filter(function(item){
 
 console.log('task 1', finals2014);
 //(a) Home Team name for 2014 world cup final
-console.log('task 1a', finals2014[0].['Home Team Name']);
+console.log('task 1a', finals2014[0]['Home Team Name']);
 //(b) Away Team name for 2014 world cup final
-console.log('task 1b', finals2014[0].['Away Team Name']);
+console.log('task 1b', finals2014[0]['Away Team Name']);
 //(c) Home Team goals for 2014 world cup final
-console.log('task 1c', finals2014[0].['Home Team Goals']);
+console.log('task 1c', finals2014[0]['Home Team Goals']);
 //(d) Away Team goals for 2014 world cup final
-console.log('task 1d', finals2014[0].['Away Team Goals']);
+console.log('task 1d', finals2014[0]['Away Team Goals']);
 //(e) Winner of 2014 world cup final */
-console.log('task 1e', finals2014[0].['Win conditions']);
+console.log('task 1e', finals2014[0]['Win conditions']);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -28,11 +28,15 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
+function getFinals(array) {    //where fifaData would be put in
+    return array.filter(function(item){
+      return item.Stage === "Final";
+    });                //teams that made it to the final stage  object."Stage": "Final",
+ }
+// console.log(getFinals(fifaData));
 
-
+// we want to use an array method that will return an array with the data that we want
+//for this we will need .filter() to filter out the objects with key-value stage-final
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
